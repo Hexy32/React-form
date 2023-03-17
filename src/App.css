@@ -1,0 +1,10 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.wrapper {
+  padding: 4rem 5rem;
+  background-color: rgb(39, 39, 39);
+}
