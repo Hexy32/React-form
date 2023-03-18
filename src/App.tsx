@@ -5,28 +5,28 @@ import CustomForm, { Questionstype } from './components/Questions'
 function App() {
 	const questions: Questionstype[] = [
 		{
-			question: 'test1',
-			answer: '',
+			question: 'Are you here?',
+			checkbox_answer: true,
 			required: true,
 		},
 		{
-			question: 'test2',
+			question: 'Are you there?',
 			answer: '',
 			required: false,
 		},
 		{
-			question: 'test3',
+			question: 'Are you anywhere?',
 			answer: '',
 			required: true,
 		},
 		{
 			question: 'test4',
-			answer: '',
+			checkbox_answer: true,
 			required: true,
 		},
 		{
 			question: 'test5',
-			answer: '',
+			checkbox_answer: true,
 			required: false,
 		},
 		{

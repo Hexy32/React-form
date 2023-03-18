@@ -10,11 +10,11 @@ export default function CustomForm({ questions }: QuestionProps) {
 						key={i}>
 						{question.question}
 					</p>
-					<p className={styles.required}>{question.required ? 'REQUIRED' : null}</p>
+					<p className={styles.required}>{question.required && 'REQUIRED'}</p>
 					<input
-						type='text'
+						type={question.checkbox_answer ? 'checkbox' : 'text'}
 						placeholder='Type your answer here...'
-						className={styles.answer}
+						className={question.checkbox_answer ? styles.checkbox_answer : styles.answer}
 					/>
 				</div>
 			))}
@@ -28,6 +28,7 @@ interface QuestionProps {
 
 export type Questionstype = {
 	question: string
-	answer: string
+	answer?: string
 	required: boolean
+	checkbox_answer?: boolean
 }
