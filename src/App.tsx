@@ -6,49 +6,65 @@ function App() {
 	const questions: Questionstype[] = [
 		{
 			question: 'Are you here?',
-			checkbox_answer: true,
+			answer: {
+				checkbox_answer: true,
+			},
 			required: true,
 			key: `${Date.now()}`,
 		},
 		{
 			question: 'nrejhntuihtruiyt?',
-			answer: '',
+			answer: {
+				text_answer: true,
+			},
 			required: false,
 			key: `${Date.now()}`,
 		},
 		{
 			question: 'Are you there?',
-			answer: '',
+			answer: {
+				checkbox_answer: true,
+			},
 			required: false,
 			key: `${Date.now()}`,
 		},
 		{
 			question: 'Are you anywhere?',
-			answer: '',
+			answer: {
+				text_answer: true,
+			},
 			required: true,
 			key: `${Date.now()}`,
 		},
 		{
 			question: 'test4',
-			checkbox_answer: true,
+			answer: {
+				text_answer: true,
+			},
 			required: true,
 			key: `${Date.now()}`,
 		},
 		{
 			question: 'test5',
-			checkbox_answer: true,
+			answer: {
+				text_answer: true,
+			},
 			required: false,
 			key: `${Date.now()}`,
 		},
 		{
 			question: 'test6',
-			answer: '',
+			answer: {
+				checkbox_answer: true,
+			},
 			required: true,
 			key: `${Date.now()}`,
 		},
 		{
 			question: 'test7',
-			answer: '',
+			answer: {
+				text_answer: true,
+			},
 			required: false,
 			key: `${Date.now()}`,
 		},
