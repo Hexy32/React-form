@@ -7,7 +7,7 @@ export default function CustomForm({ questions }: QuestionProps) {
 				<div className={styles.questioncontainer}>
 					<p
 						className={styles.question}
-						key={i}>
+						key={question.key}>
 						{question.question}
 					</p>
 					<p className={styles.required}>{question.required && 'REQUIRED'}</p>
@@ -31,4 +31,5 @@ export type Questionstype = {
 	answer?: string
 	required: boolean
 	checkbox_answer?: boolean
+	key: string
 }
