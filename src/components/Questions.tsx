@@ -1,37 +1,33 @@
 import styles from './styles/Questions.module.css'
 
-export default function CustomForm({ questions }: QuestionProps) {
+export default function CustomForm({ forms }: FormProps) {
+	const TIME = new Date()
+
 	return (
 		<form className={styles.wrapper}>
-			{questions.map((question) => (
+			{forms.map((form) => (
 				<div className={styles.questioncontainer}>
-					<p
-						className={styles.question}
-						key={question.key}>
-						{question.question}
+					<h2 className={styles.question}>{form.formName}</h2>
+					<p className={styles.number_of_questions}>
+						{`Number of questions: ${form.numberOfQuestions}`}
 					</p>
-					<p className={styles.required}>{question.required && 'REQUIRED'}</p>
-					<input
-						type={question.answer.checkbox_answer ? 'checkbox' : 'text'}
-						placeholder='Type your answer here...'
-						className={question.answer.checkbox_answer ? styles.checkbox_answer : styles.answer}
-					/>
+					<p className={styles.date_created}>{`Date of creation: 
+						${TIME.getFullYear()} 
+						${TIME.getMonth()}/${TIME.getDay()} 
+						${TIME.getHours()}:${TIME.getMinutes()}
+						`}</p>
 				</div>
 			))}
 		</form>
 	)
 }
 
-interface QuestionProps {
-	questions: Questionstype[]
+export interface FormProps {
+	forms: FormsType[]
 }
 
-export type Questionstype = {
-	question: string
-	required: boolean
-	key: string
-	answer: {
-		checkbox_answer?: boolean
-		text_answer?: boolean
-	}
+export type FormsType = {
+	formName: string
+	numberOfQuestions: string
+	dateCreated: string
 }

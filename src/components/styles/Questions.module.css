@@ -34,9 +34,10 @@
   border-radius: 0.5rem;
 }
 
-.required {
-  color: red;
+.number_of_questions,
+.date_created {
   font-family: Arial, Helvetica, sans-serif;
+  color: white;
 }
 
 .checkbox_answer {
