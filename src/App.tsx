@@ -2,6 +2,7 @@ import './App.css'
 
 import CustomForm, { FormsType } from './components/Questions'
 import NewForm from './components/NewForm'
+import { useState } from 'react'
 
 function App() {
 	const forms: FormsType[] = [
@@ -10,70 +11,21 @@ function App() {
 			numberOfQuestions: '22',
 			dateCreated: `${Date.now()}`,
 		},
-		// {
-		// 	question: 'nrejhntuihtruiyt?',
-		// 	answer: {
-		// 		text_answer: true,
-		// 	},
-		// 	required: false,
-		// 	key: `${Date.now()}`,
-		// },
-		// {
-		// 	question: 'Are you there?',
-		// 	answer: {
-		// 		checkbox_answer: true,
-		// 	},
-		// 	required: false,
-		// 	key: `${Date.now()}`,
-		// },
-		// {
-		// 	question: 'Are you anywhere?',
-		// 	answer: {
-		// 		text_answer: true,
-		// 	},
-		// 	required: true,
-		// 	key: `${Date.now()}`,
-		// },
-		// {
-		// 	question: 'test4',
-		// 	answer: {
-		// 		text_answer: true,
-		// 	},
-		// 	required: true,
-		// 	key: `${Date.now()}`,
-		// },
-		// {
-		// 	question: 'test5',
-		// 	answer: {
-		// 		text_answer: true,
-		// 	},
-		// 	required: false,
-		// 	key: `${Date.now()}`,
-		// },
-		// {
-		// 	question: 'test6',
-		// 	answer: {
-		// 		checkbox_answer: true,
-		// 	},
-		// 	required: true,
-		// 	key: `${Date.now()}`,
-		// },
-		// {
-		// 	question: 'test7',
-		// 	answer: {
-		// 		text_answer: true,
-		// 	},
-		// 	required: false,
-		// 	key: `${Date.now()}`,
-		// },
 	]
+
+	const [formData, setFormData] = useState(forms)
+
+	console.log(formData)
 
 	return (
 		<>
 			<main className='wrapper'>
-				<CustomForm forms={forms} />
+				<CustomForm forms={formData} />
 			</main>
-			<NewForm forms={forms} />
+			<NewForm
+				forms={forms}
+				setFormData={setFormData}
+			/>
 		</>
 	)
 }
