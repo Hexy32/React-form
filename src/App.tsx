@@ -2,30 +2,39 @@ import './App.css'
 
 import CustomForm, { FormsType } from './components/Questions'
 import NewForm from './components/NewForm'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
-	const forms: FormsType[] = [
-		{
-			formName: 'Something idfk',
-			numberOfQuestions: '22',
-			dateCreated: `${Date.now()}`,
-		},
-	]
+	const [formData, setFormData] = useState<FormsType[] | undefined>(undefined)
 
-	const [formData, setFormData] = useState(forms)
-
-	console.log(formData)
+	useEffect(() => {
+		if (formData) {
+			localStorage.setItem('formList', JSON.stringify(formData))
+		} else {
+			const rawData = localStorage.getItem('formList')
+			if (rawData === null) return setFormData([])
+			setFormData(JSON.parse(rawData))
+		}
+	}, [formData])
 
 	return (
 		<>
-			<main className='wrapper'>
-				<CustomForm forms={formData} />
-			</main>
-			<NewForm
-				forms={forms}
-				setFormData={setFormData}
-			/>
+			{formData ? (
+				<>
+					<main className='wrapper'>
+						<CustomForm
+							formData={formData}
+							setFormData={setFormData}
+						/>
+					</main>
+					<NewForm
+						formData={formData}
+						setFormData={setFormData}
+					/>
+				</>
+			) : (
+				<p>loading...</p>
+			)}
 		</>
 	)
 }

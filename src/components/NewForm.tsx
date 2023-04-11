@@ -1,21 +1,27 @@
-import { FormProps } from './Questions'
+import { FormsType } from './Questions'
 import styles from './styles/NewForm.module.css'
 
-export default function NewForm({ forms, setFormData }: FormProps) {
-	const TIME = new Date()
-
-	const newFormObject = {
-		formName: 'test',
-		numberOfQuestions: '10',
-		dateCreated: `Date of creation:
-		${TIME.getFullYear()}
-		${TIME.getMonth()}/${TIME.getDay()}
-		${TIME.getHours()}:${TIME.getMinutes()}
-	`,
-	}
+export default function NewForm({ formData, setFormData }: NewFormProps) {
+	const time = new Date()
 
 	const newFormFunc = () => {
-		setFormData(forms.push(newFormObject))
+		setFormData((forms) => [
+			...(forms ? forms : []),
+			{
+				uuid: crypto.randomUUID(),
+				formName: 'test',
+				numberOfQuestions: `${Math.floor(Math.random() * 100)}`,
+				dateCreated: `Date of creation:
+				${time.getFullYear()}
+				${time.getMonth() < 10 ? '0' + time.getMonth() : time.getMonth()}/${
+					time.getDay() < 10 ? '0' + time.getDay() : time.getDay()
+				}
+				${time.getHours() < 10 ? '0' + time.getHours() : time.getHours()}:${
+					time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes()
+				}
+			`,
+			},
+		])
 	}
 
 	return (
@@ -25,4 +31,9 @@ export default function NewForm({ forms, setFormData }: FormProps) {
 			+ Add form
 		</button>
 	)
+}
+
+export interface NewFormProps {
+	formData: FormsType[]
+	setFormData: React.Dispatch<React.SetStateAction<FormsType[] | undefined>>
 }
