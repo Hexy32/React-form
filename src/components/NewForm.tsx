@@ -10,7 +10,7 @@ export default function NewForm({ formData, setFormData }: NewFormProps) {
 			{
 				uuid: crypto.randomUUID(),
 				formName: 'test',
-				numberOfQuestions: `${Math.floor(Math.random() * 100)}`,
+				numberOfQuestions: `Number of questions: ${Math.floor(Math.random() * 100)}`,
 				dateCreated: `Date of creation:
 				${time.getFullYear()}
 				${time.getMonth() < 10 ? '0' + time.getMonth() : time.getMonth()}/${
@@ -20,6 +20,7 @@ export default function NewForm({ formData, setFormData }: NewFormProps) {
 					time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes()
 				}
 			`,
+				lastEdit: 'Last edited: loading......', //TODO
 			},
 		])
 	}

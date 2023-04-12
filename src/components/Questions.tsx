@@ -19,10 +19,9 @@ export default function CustomForm({ formData, setFormData }: CustomFormProps) {
 					className={styles.questioncontainer}>
 					<div className={styles.form_info}>
 						<h2 className={styles.question}>{form.formName}</h2>
-						<p className={styles.number_of_questions}>
-							{`Number of questions: ${form.numberOfQuestions}`}
-						</p>
+						<p className={styles.number_of_questions}>{`${form.numberOfQuestions}`}</p>
 						<p className={styles.date_created}>{form.dateCreated}</p>
+						<p className={styles.last_edited}>{form.lastEdit}</p>
 					</div>
 					<EditForm />
 					<button
@@ -47,4 +46,5 @@ export type FormsType = {
 	formName: string
 	numberOfQuestions: string
 	dateCreated: string
+	lastEdit: string
 }
