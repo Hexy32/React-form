@@ -1,5 +1,6 @@
 import styles from './styles/Questions.module.css'
 import svg from '/src/assets/close.svg'
+import EditForm from './EditForm'
 
 export default function CustomForm({ formData, setFormData }: CustomFormProps) {
 	function deleteForm(e: React.MouseEvent) {
@@ -23,6 +24,7 @@ export default function CustomForm({ formData, setFormData }: CustomFormProps) {
 						</p>
 						<p className={styles.date_created}>{form.dateCreated}</p>
 					</div>
+					<EditForm />
 					<button
 						id={'i' + form.uuid}
 						onClick={deleteForm}
