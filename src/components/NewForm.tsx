@@ -1,7 +1,7 @@
-import { FormsType } from './Questions'
+import { FormType } from './CustomForms'
 import styles from './styles/NewForm.module.css'
 
-export default function NewForm({ formData, setFormData }: NewFormProps) {
+export default function NewForm({ setFormData }: NewFormProps) {
 	const time = new Date()
 
 	const newFormFunc = () => {
@@ -21,6 +21,7 @@ export default function NewForm({ formData, setFormData }: NewFormProps) {
 				}
 			`,
 				lastEdit: 'Last edited: loading......', //TODO
+				questionArr: [],
 			},
 		])
 	}
@@ -35,6 +36,6 @@ export default function NewForm({ formData, setFormData }: NewFormProps) {
 }
 
 export interface NewFormProps {
-	formData: FormsType[]
-	setFormData: React.Dispatch<React.SetStateAction<FormsType[] | undefined>>
+	formData: FormType[]
+	setFormData: React.Dispatch<React.SetStateAction<FormType[] | undefined>>
 }

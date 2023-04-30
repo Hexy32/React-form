@@ -1,0 +1,14 @@
+.open_form_question_creation_UI {
+  width: 6rem;
+  aspect-ratio: 1;
+  margin-left: auto;
+  background: none;
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.pen_svg_img {
+  width: 100%;
+}

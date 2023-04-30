@@ -1,11 +1,12 @@
 import './App.css'
 
-import CustomForm, { FormsType } from './components/Questions'
+import CustomForms, { FormType } from './components/CustomForms'
 import NewForm from './components/NewForm'
+import { QuestionType } from './components/EditForm'
 import { useEffect, useState } from 'react'
 
 function App() {
-	const [formData, setFormData] = useState<FormsType[] | undefined>(undefined)
+	const [formData, setFormData] = useState<FormType[] | undefined>(undefined)
 
 	useEffect(() => {
 		if (formData) {
@@ -22,7 +23,7 @@ function App() {
 			{formData ? (
 				<>
 					<main className='wrapper'>
-						<CustomForm
+						<CustomForms
 							formData={formData}
 							setFormData={setFormData}
 						/>
