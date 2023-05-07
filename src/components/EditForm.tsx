@@ -2,21 +2,10 @@ import styles from './styles/EditForm.module.css'
 import pensvg from '../assets/pen.svg'
 import { FormType } from './CustomForms'
 
-export default function EditForm({ formData, setFormData, index }: EditFormProps) {
-	function newQuestion() {
-		setFormData((formData) => {
-			const current = formData![index]
-			current.questionArr.push({ question: 'test' })
-
-			return formData
-		})
-	}
-
+export default function EditForm() {
 	return (
 		<>
-			<button
-				onClick={newQuestion}
-				className={styles.open_form_question_creation_UI}>
+			<button className={styles.open_form_question_creation_UI}>
 				<img
 					src={pensvg}
 					alt='edit form button'
